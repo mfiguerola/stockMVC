@@ -37,7 +37,9 @@ storage
   .then(() => {
     const http = require('http');
     http
-      .createServer(function(req, res) {
+      .createServer(function (req, res) {
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         if (req.method == 'GET') {
           storage.getItem('stocks').then(data => {
             res.writeHead(200, { 'Content-Type': 'text/json; charset=utf-8' });
@@ -55,6 +57,9 @@ storage
               res.end();
             });
           });
+        } else {
+          res.writeHead(200);
+          res.end();
         }
       })
       .listen(3000);

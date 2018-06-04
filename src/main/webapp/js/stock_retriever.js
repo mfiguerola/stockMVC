@@ -1,5 +1,5 @@
 (function (STOCK_RETRIEVER, $, _, undefined) {
-  STOCK_RETRIEVER.updateStockValues = function(data) {
+  STOCK_RETRIEVER.updateStockValue = function(data) {
     $('.stock_value').text(data['Time Series (Daily)']['2018-06-04']['4. close']);
   };
   
