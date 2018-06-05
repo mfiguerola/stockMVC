@@ -3,7 +3,7 @@ const serveStatic = require('serve-static');
 connect()
   .use(serveStatic(__dirname + '/src/main/'))
   .listen(8080, function() {
-    console.log('Server running on 8080');
+    console.log('App server running on 8080');
   });
 
 // const stocks = {
@@ -63,5 +63,5 @@ storage
         }
       })
       .listen(3000);
-    console.log('server running 3000');
+    console.log('Storage server running on 3000');
   });

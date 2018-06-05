@@ -13,32 +13,24 @@
   <link rel="stylesheet" href="">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.10/lodash.core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 </head>
 
 <body>
     <script src='webapp/js/ajax.js'></script>
-    <script src='webapp/js/main.js'></script>
-    <script src='webapp/js/stock_retriever.js'></script>
-    <script src='webapp/js/view.js'></script>
+    <script src='webapp/js/helpers/events.js'></script>
+    <script src='webapp/js/helpers/stock_retriever.js'></script>
+    <script src='webapp/js/parsers/row_parser.js'></script>
+    <script src='webapp/js/views/stock_retriever.js'></script>
+    <script src='webapp/js/views/main.js'></script>
+    <script src='webapp/js/bus.js'></script>
   <div>
     <h2>Stock's checker</h2>
-    <span>Inditex current value: </span><span class="stock_value"></span>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Stock Buying Price</th>
-                <th>Number of stocks</th>
-                <th>Price paid after taxes</th>
-                <th>Current stock price</th>
-                <th>% difference</th>
-                <th>Gained</th>
-            </tr>
-        </thead>
-        <!-- <tbody id="stock_list"></tbody> -->
-    </table>
-    <span id="stock_list"></tbody>
+    <!-- <span>Inditex current value: </span><span class="stock_value"></span> -->
+    <div class="table_container"></div>
+    <!-- <span id="stock-list"></span> -->
+    <div class="table_template"></div>
+    <div class="table_row_template"></div>
   </div>
 </body>
 

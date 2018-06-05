@@ -1,0 +1,20 @@
+<script id="stock-table-template" type="text/template">
+  <table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Stock Buying Price</th>
+            <th>Number of stocks</th>
+            <th>Price paid after taxes</th>
+            <th>Current stock price</th>
+            <!-- <th>% difference</th>
+            <th>Gained</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        {{_.each(data.stocks, function(stock) {
+            data.rowTemplate(stock);
+        };}}
+    </tbody>
+  </table>
+</script>

@@ -1,6 +1,6 @@
 (function(AJAX, $, _, undefined) {
   AJAX.retrieveStockValue = function(stockSymbol, callback, errorCallback) {
-    $.ajax({
+    return $.ajax({
       url:
         'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&apikey=9IYGZXJCVQ3CURXN&symbol=' +
         stockSymbol,
