@@ -1,8 +1,6 @@
 var init = function () {
   includeTemplates();
-  initTemplateSettings();
-  // AJAX.retrieveStockValue('ITX.MC', STOCK_RETRIEVER_VIEW.updateStockValue, STOCK_RETRIEVER_VIEW.onError);
-  AJAX.getStocks(MAIN_VIEW.requestRender, MAIN_VIEW.onError);
+  STOCKS_MANAGER_MODEL.init();
 };
 
 var includeTemplates = function() {
@@ -12,18 +10,8 @@ var includeTemplates = function() {
   });
 }
 
-var initTemplateSettings = function () {
-  _.templateSettings = {
-    evaluate: /\{\#([\s\S]+?)\#\}/g,
-    interpolate: /\{\{([\s\S]+?)\}\}/g
-  };
-};
-
-var render = function(e, data) {
-  ROW_PARSER.parse(_.extend({}, data, { 'retrieveStockValueFun': AJAX.retrieveStockValue }));
-};
-
 $(document)
   .ready(init)
-  .on('renderDataRequested', render)
-  .on('stocksParsedSuccessfully', MAIN_VIEW.render);
+  .on('stocksRequestedSuccessfully', ROW_PARSER.parse)
+  .on('stocksRequestFailed', STOCKS_MANAGER_VIEW.onError)
+  .on('stocksParsedSuccessfully', STOCKS_MANAGER_VIEW.render);

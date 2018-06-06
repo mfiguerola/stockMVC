@@ -7,14 +7,14 @@
             <th>Number of stocks</th>
             <th>Price paid after taxes</th>
             <th>Current stock price</th>
-            <!-- <th>% difference</th>
-            <th>Gained</th> -->
+            <th>% difference</th>
+            <th>Gained</th>
         </tr>
     </thead>
     <tbody>
-        {{_.each(data.stocks, function(stock) {
-            data.rowTemplate(stock);
-        };}}
+        <% _.each(stocks, function(stock) { %>
+            <%= rowTemplateFn(stock) %>
+        <% }); %>
     </tbody>
   </table>
 </script>

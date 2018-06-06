@@ -3,35 +3,34 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
-</head>
-
-<body>
-    <script src='webapp/js/ajax.js'></script>
-    <script src='webapp/js/helpers/events.js'></script>
-    <script src='webapp/js/helpers/stock_retriever.js'></script>
-    <script src='webapp/js/parsers/row_parser.js'></script>
-    <script src='webapp/js/views/stock_retriever.js'></script>
-    <script src='webapp/js/views/main.js'></script>
-    <script src='webapp/js/bus.js'></script>
-  <div>
-    <h2>Stock's checker</h2>
-    <!-- <span>Inditex current value: </span><span class="stock_value"></span> -->
-    <div class="table_container"></div>
-    <!-- <span id="stock-list"></span> -->
-    <div class="table_template"></div>
-    <div class="table_row_template"></div>
-  </div>
-</body>
+  <body>
+      <script src='webapp/js/ajax.js'></script>
+      <script src='webapp/js/helpers/events.js'></script>
+      <script src='webapp/js/helpers/stock_helper.js'></script>
+      <script src='webapp/js/parsers/row_parser.js'></script>
+      <script src='webapp/js/models/stocks_manager.js'></script>
+      <script src='webapp/js/views/main.js'></script>
+      <script src='webapp/js/views/stocks_manager.js'></script>
+      <script src='webapp/js/bus.js'></script>
+      <div class="m-5">
+        <h2 class="mb-3">Stock's checker</h2>
+        <div class="table_container"></div>
+        <button type="button" class="add_stock_btn btn btn-primary">Add stock</button>
+        <div class="table_template"></div>
+        <div class="table_row_template"></div>
+      </div>
+  </body>
 
 </html>
