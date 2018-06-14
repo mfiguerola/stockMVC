@@ -1,6 +1,7 @@
 var init = function () {
   includeTemplates();
   STOCKS_MANAGER_MODEL.init();
+  MODAL_VIEW.init();
 };
 
 var includeTemplates = function() {
@@ -14,4 +15,5 @@ $(document)
   .ready(init)
   .on('stocksRequestedSuccessfully', ROW_PARSER.parse)
   .on('stocksRequestFailed', STOCKS_MANAGER_VIEW.onError)
-  .on('stocksParsedSuccessfully', STOCKS_MANAGER_VIEW.render);
+  .on('stocksParsedSuccessfully', STOCKS_MANAGER_VIEW.render)
+  .on('addStockRequested', MODAL_MODEL.requestNewStock);
