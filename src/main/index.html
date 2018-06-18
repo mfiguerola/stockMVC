@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="webapp/css/modal.css">
+  <link rel="stylesheet" href="webapp/css/table.css">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
@@ -31,7 +32,14 @@
   <script src='webapp/js/bus.js'></script>
   <div class="m-5">
     <h2 class="mb-3">Stock's checker</h2>
-    <div class="table_container"></div>
+    <div class="table_container table-container">
+      <div class="loading">
+        Loading
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
     <button type="button" class="add_stock_btn btn btn-primary" data-toggle="modal" data-target="#add-stock-modal">Add stock</button>
     <div class="modal fade" id="add-stock-modal" tabindex="-1" role="dialog" aria-labelledby="addStockModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -62,20 +70,21 @@
                     <input type="text" id="name" />
                   </th>
                   <th>
-                    <input type="text" id="buying-price" />
+                    <input type="text" id="stockBuyingPrice" />
                   </th>
                   <th>
-                    <input type="text" id="num-stocks" />
+                    <input type="text" id="nStocks" />
                   </th>
                   <th>
-                    <input type="text" id="paid-after-taxes" />
+                    <input type="text" id="pricePaidAfterTaxes" />
                   </th>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="modal-error modal_error hidden"></div>
+            <button type="button" class="close_add_stock_modal btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="add_stock btn btn-primary">Save new Stock</button>
           </div>
         </div>

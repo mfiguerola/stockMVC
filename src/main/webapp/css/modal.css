@@ -1,3 +1,15 @@
 #add-stock-modal .modal-dialog {
     max-width: 90%;
 }
+
+.invalid {
+    border-color: red;
+}
+
+.modal-error {
+    color: red;
+}
+
+.modal-error.hidden {
+    display: none;
+}
