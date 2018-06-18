@@ -16,7 +16,7 @@
   STOCK_HELPER.getStockValues = function(data) {
     var dailyTimeSeries = data['Time Series (Daily)'];
     var lastRefreshedSerieKey = this.getStockInfo(data)['3. Last Refreshed'];
-    return dailyTimeSeries[lastRefreshedSerieKey];
+    return dailyTimeSeries[_.first(lastRefreshedSerieKey.split(' '))];
   };
 
   STOCK_HELPER.onError = function(error) {
