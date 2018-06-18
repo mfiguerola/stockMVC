@@ -28,17 +28,18 @@
     return this.model;
   };
 
-  var onAddStockSuccess = function() {
+  var onAddStockSuccess = function () {
     EVENTS.trigger('newStockAddedSuccessfully');
   };
 
-  var onAddStockError = function() {
-    EVENTS.trigger('newStockCouldNotBeAddes', {message: 'En error occurred while new stock was being added. Plese, try again.'});
+  var onAddStockError = function () {
+    console.log('onAddStockError');
+    EVENTS.trigger('newStockCouldNotBeAdded', {message: 'En error occurred while new stock was being added. Please, try again.'});
   };
 
   STOCKS_MANAGER_MODEL.addStock = function (newStock) {
     var stock = _.pick(newStock, 'id', 'name', 'nStocks', 'stocksBuyingPrice', 'pricePaidAfterTaxes', 'stockBuyingPrice');
-    var newStockAlreadyExists = _.filter(this.model.stocks, function (stock) {
+    var newStockAlreadyExists = _.filter(this.model.stocks, function(stock) {
       return stock.id === newStock.id
     }).length > 0;
     if (!newStockAlreadyExists) {
@@ -50,9 +51,10 @@
         dataType: 'json',
         data: data,
         contentType: 'application/json; charset=utf-8',
-        success: onAddStockSuccess,
-        error: onAddStockError
-      });
+      })
+        .done(onAddStockSuccess)
+        .fail(onAddStockError);
+      
     } else {
       EVENTS.trigger('newStockAlreadyExists', {message: 'There\'s another stock with that id already'});
     }

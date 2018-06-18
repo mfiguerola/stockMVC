@@ -30,4 +30,5 @@ $(document)
   .on('newStockRequestError', MODAL_VIEW.showError)
   .on('newStockRequestedSuccessfully', onNewStockRequestedSuccessfully)
   .on('newStockAlreadyExists', MODAL_VIEW.showError)
-  .on('newStockAddedSuccessfully', onNewStockAddedSuccessfully);
+  .on('newStockAddedSuccessfully', onNewStockAddedSuccessfully)
+  .on('newStockCouldNotBeAdded', MODAL_VIEW.showError);

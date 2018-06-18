@@ -1,10 +1,16 @@
-(function(MODAL_MODEL, $, _, undefined) {
-  MODAL_MODEL.requestNewStock = function(ev, data) {
+(function (MODAL_MODEL, $, _, undefined) {
+  var newStockData;
+  MODAL_MODEL.requestNewStock = function (ev, data) {
+    newStockData = data;
     if (data.numOfInvalidFields === 0) {
-      EVENTS.trigger('newStockRequestedSuccessfully', data);
+      AJAX.retrieveStockValue(data.id, onSuccess, onError);
     } else {
       onError({message: 'All fields are required'});
     }
+  };
+
+  var onSuccess = function(data){
+    EVENTS.trigger('newStockRequestedSuccessfully', newStockData);
   };
 
   var onError = function(error) {
