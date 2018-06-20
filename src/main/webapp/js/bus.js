@@ -21,6 +21,10 @@ var onNewStockAddedSuccessfully = function(e, data) {
   init();
 };
 
+var showRemoveError = function(e, error) {
+  $('.main_error_message').html(error.message);
+};
+
 $(document)
   .ready(init)
   .on('stocksRequestedSuccessfully', ROW_PARSER.parse)
@@ -31,4 +35,7 @@ $(document)
   .on('newStockRequestedSuccessfully', onNewStockRequestedSuccessfully)
   .on('newStockAlreadyExists', MODAL_VIEW.showError)
   .on('newStockAddedSuccessfully', onNewStockAddedSuccessfully)
-  .on('newStockCouldNotBeAdded', MODAL_VIEW.showError);
+  .on('newStockCouldNotBeAdded', MODAL_VIEW.showError)
+  .on('removeStockRequested', STOCKS_MANAGER_MODEL.removeStock)
+  .on('stockRemovedSuccessfully', init)
+  .on('stockCouldNotBeRemoved', showRemoveError);

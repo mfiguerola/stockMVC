@@ -38,3 +38,11 @@
     transform: scale(1.0);
   }
 }
+
+.remove-stock {
+  border: none;
+    cursor: pointer;
+    color: red;
+    font-size: 18px;
+    line-height: 1;
+}
